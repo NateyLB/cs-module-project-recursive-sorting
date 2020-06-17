@@ -6,7 +6,7 @@ def merge(arrA, arrB, arr, index):
         if arrA[0] < arrB[0]:
             arr[index] = arrA[0]
             arrA.pop(0)
-        elif arrA[0] > arrB[0]:
+        else: 
             arr[index] = arrB[0]
             arrB.pop(0)
         index += 1
@@ -19,6 +19,7 @@ def merge(arrA, arrB, arr, index):
         arr[index] = arrB[0]
         arrB.pop(0)
         index += 1
+    print(arr, "ARR")
     # returns index to keep track of which one to insert to
     return index
 
@@ -30,6 +31,8 @@ def merge_sort(arr):
         split = len(arr)//2
         left = arr[:split]
         right = arr[split:]
+        print(left, "L")
+        print(right, "R")
         merge_sort(left)
         merge_sort(right)
         # create an index to keep track which index to insert to
@@ -39,6 +42,8 @@ def merge_sort(arr):
         
 
     return arr
+test =[2,1,4,3,6,5,8,7,10,9,12,11]
+merge_sort(test)
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory

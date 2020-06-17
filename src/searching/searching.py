@@ -18,6 +18,22 @@ def binary_search(arr, target, start, end):
 # sorted in ascending order or in descending order
 # You can implement this function either recursively 
 # or iteratively
-# def agnostic_binary_search(arr, target):
+def agnostic_binary_search(arr, target):
     # Your code here
+    if arr[0] < arr[len(arr)-1]:
+        return binary_search(arr, target, 0, len(arr)-1)
+    else:
+        asc_arr = []
+        for index in range(len(arr)-1, -1, -1):
+            asc_arr.append(arr[index])
+        reverse_index= binary_search(asc_arr, target, 0, len(asc_arr)-1)
+        divisor = len(asc_arr)-1
+        if reverse_index == -1:
+            return -1
+        else:
+            return abs(reverse_index - divisor)
+descending = [101, 98, 57, 49, 45, 13, -3, -17, -61]
+print(agnostic_binary_search(descending, -17))
+print(agnostic_binary_search(descending, -1))
+
 
