@@ -1,6 +1,7 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB, arr, index):
     # Your code here
+    # find the smaller value and insert into array at index
     while len(arrA) > 0 and len(arrB) > 0:
         if arrA[0] < arrB[0]:
             arr[index] = arrA[0]
@@ -9,7 +10,7 @@ def merge(arrA, arrB, arr, index):
             arr[index] = arrB[0]
             arrB.pop(0)
         index += 1
-
+    # get last value out of left or right
     while len(arrA) > 0:
         arr[index] = arrA[0]
         arrA.pop(0)
@@ -18,7 +19,7 @@ def merge(arrA, arrB, arr, index):
         arr[index] = arrB[0]
         arrB.pop(0)
         index += 1
-
+    # returns index to keep track of which one to insert to
     return index
 
 # TO-DO: implement the Merge Sort function below recursively
@@ -29,17 +30,16 @@ def merge_sort(arr):
         split = len(arr)//2
         left = arr[:split]
         right = arr[split:]
-        print(left, "left")
-        print(right, "right")
         merge_sort(left)
         merge_sort(right)
+        # create an index to keep track which index to insert to
         index = 0
+        # merge
         index = merge(left, right, arr, index)
         
 
     return arr
-test = [9,4,8,2,6,5,7,1]
-print(merge_sort(test))
+
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
 # utilize any extra memory
 # In other words, your implementation should not allocate any additional lists 
