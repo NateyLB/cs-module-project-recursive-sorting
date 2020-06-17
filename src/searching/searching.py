@@ -2,21 +2,17 @@
 def binary_search(arr, target, start, end):
     # Your code here
     mid = (start + end)//2
-    if start == end:
-        return False
-    elif len(arr) < 1:
+    if start > end:
         return -1
     else:
         if arr[mid] == target:
             return mid
         elif target < arr[mid]:
-            return binary_search(arr, target, start, mid)
+            return binary_search(arr, target, start, mid-1)
         else:
-            return binary_search(arr, target, mid, end)
+            return binary_search(arr, target, mid+1, end)
     
 
-# test = [1,2,3,4,5,6,7,8,9,10]
-# print(binary_search(test,0,0,len(test)-1))
 
 # STRETCH: implement an order-agnostic binary search
 # This version of binary search should correctly find 
