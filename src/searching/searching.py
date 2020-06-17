@@ -32,8 +32,5 @@ def agnostic_binary_search(arr, target):
             return -1
         else:
             return abs(reverse_index - divisor)
-descending = [101, 98, 57, 49, 45, 13, -3, -17, -61]
-print(agnostic_binary_search(descending, -17))
-print(agnostic_binary_search(descending, -1))
 
 
